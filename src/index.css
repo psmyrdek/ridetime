@@ -1,0 +1,9 @@
+@font-face {
+  font-family: Francy;
+  src: url('/fonts/francy/Francy.woff') format('woff'),
+      url('/fonts/francy/Francy.woff2') format('woff2'),
+       url('/fonts/francy/Francy.ttf') format('truetype'),
+       url('/fonts/francy/Francy.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
