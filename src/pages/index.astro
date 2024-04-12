@@ -1,5 +1,9 @@
 ---
 import "../index.css";
+
+import logoWhite from "../assets/images/logo-white.png";
+
+import Footer from "../components/Footer.astro";
 ---
 
 <html lang='en'>
@@ -10,11 +14,20 @@ import "../index.css";
     <meta name='generator' content={Astro.generator} />
     <title>ridetime</title>
   </head>
-  <body class='bg-rose-900'>
-    <h1
-      class='text-center text-8xl mt-24 font-main text-rose-400/80 tracking-wider'
-    >
-      ride<span class='text-rose-500'>time</span>
-    </h1>
+  <body class='bg-ridetime-light'>
+    <div class='mx-auto max-w-5xl p-4 space-y-8'>
+      <div class='flex flex-row items-center justify-between'>
+        <img src={logoWhite.src} alt='ridetime logo' class='h-32' />
+      </div>
+      <iframe
+        loading='lazy'
+        class='w-full aspect-video'
+        src='https://www.youtube.com/embed/-dpkXNn3FRI?si=t4CGiPrkWHGJOfk5'
+        title='Video player'
+        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+        allowfullscreen></iframe>
+
+      <Footer />
+    </div>
   </body>
 </html>
