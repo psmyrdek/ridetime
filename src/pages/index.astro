@@ -1,9 +1,15 @@
 ---
-import "../index.css";
+import '../index.css';
 
-import logoWhite from "../assets/images/logo-white.png";
+import logoWhite from '../assets/images/logo-white.png';
 
-import Footer from "../components/Footer.astro";
+import Footer from '../components/Footer.astro';
+
+const videos = [
+  'https://www.youtube.com/embed/pU0EWJx165s',
+  'https://www.youtube.com/embed/E5V9tmqaVag',
+  'https://www.youtube.com/embed/-dpkXNn3FRI',
+];
 ---
 
 <html lang='en'>
@@ -17,23 +23,29 @@ import Footer from "../components/Footer.astro";
 
     <meta name='generator' content={Astro.generator} />
     <title>ridetime | Chodź na rower</title>
-    <meta
-      name='description'
-      content='Rowery, ubrania, sprzęt i trasy - dla fanów kolarstwa.'
-    />
+    <meta name='description' content='Rowery, ubrania, sprzęt i trasy - dla fanów kolarstwa.' />
   </head>
   <body class='bg-ridetime-light'>
     <div class='mx-auto max-w-5xl p-4 space-y-8'>
       <div class='flex flex-row items-center justify-between'>
         <img src={logoWhite.src} alt='ridetime logo' class='h-32' />
       </div>
-      <iframe
-        loading='lazy'
-        class='w-full aspect-video'
-        src='https://www.youtube.com/embed/-dpkXNn3FRI?si=t4CGiPrkWHGJOfk5'
-        title='Video player'
-        allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-        allowfullscreen></iframe>
+      <ul class='space-y-8'>
+        {
+          videos.map((videoSrc) => (
+            <li>
+              <iframe
+                loading='lazy'
+                class='w-full aspect-video'
+                src={videoSrc}
+                title='Video player'
+                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+                allowfullscreen
+              />
+            </li>
+          ))
+        }
+      </ul>
 
       <Footer />
     </div>
