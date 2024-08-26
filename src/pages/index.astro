@@ -1,15 +1,17 @@
 ---
 import '../index.css';
-
 import logoWhite from '../assets/images/logo-white.png';
-
 import Footer from '../components/Footer.astro';
+import YouTubeVideo from '../components/YouTubeVideo.astro';
+import ShortsCarouselSvelte from '../components/ShortsCarousel.svelte';
+import SocialLinks from '../components/SocialLinks.astro';
+import {getLatestVideosFromChannel} from '../utils/youtube';
 
-const videos = [
-  'https://www.youtube.com/embed/pU0EWJx165s',
-  'https://www.youtube.com/embed/E5V9tmqaVag',
-  'https://www.youtube.com/embed/-dpkXNn3FRI',
-];
+const channelId = import.meta.env.YOUTUBE_CHANNEL_ID;
+const allVideos = await getLatestVideosFromChannel(channelId, 20);
+
+const shorts = allVideos.filter((video) => video.isShort);
+const regularVideos = allVideos.filter((video) => !video.isShort);
 ---
 
 <html lang='en'>
@@ -25,26 +27,23 @@ const videos = [
     <title>ridetime | Chodź na rower</title>
     <meta name='description' content='Rowery, ubrania, sprzęt i trasy - dla fanów kolarstwa.' />
   </head>
-  <body class='bg-ridetime-light'>
+  <body class='bg-ridetime-dark'>
     <div class='mx-auto max-w-5xl p-4 space-y-8'>
-      <div class='flex flex-row items-center justify-between'>
-        <img src={logoWhite.src} alt='ridetime logo' class='h-32' />
+      <div class='flex flex-col gap-y-4 sm:gap-y-0 sm:flex-row items-center justify-between'>
+        <img src={logoWhite.src} alt='ridetime logo' class='h-16' />
+        <SocialLinks showLabels={true} />
       </div>
-      <ul class='space-y-8'>
-        {
-          videos.map((videoSrc) => (
-            <li>
-              <iframe
-                loading='lazy'
-                class='w-full aspect-video'
-                src={videoSrc}
-                title='Video player'
-                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
-                allowfullscreen
-              />
-            </li>
-          ))
-        }
+
+      <!-- Embed ShortsCarouselSvelte component directly -->
+      <div class='mb-8'>
+        <h2 class='text-2xl font-bold mb-4 text-sky-200'>Shorts</h2>
+        <ShortsCarouselSvelte client:load shorts={shorts} />
+      </div>
+
+      <!-- Regular videos list -->
+      <h2 class='text-2xl font-bold mb-4 text-sky-200'>Najnowsze filmy</h2>
+      <ul class='space-y-16'>
+        {regularVideos.map((video) => <li>{video.id && <YouTubeVideo videoId={video.id} />}</li>)}
       </ul>
 
       <Footer />

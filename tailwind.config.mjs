@@ -5,10 +5,10 @@ export default {
     extend: {
       colors: {
         'ridetime-light': '#9ACDFA',
-        'ridetime-dark': '#1B4A7F'
+        'ridetime-dark': 'rgb(8 19 32)',
       },
       fontFamily: {
-        main: ["Francy", "sans-serif"],
+        main: ['Francy', 'sans-serif'],
       },
     },
   },
