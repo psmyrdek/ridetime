@@ -3,15 +3,8 @@ import '../index.css';
 import logoWhite from '../assets/images/logo-white.png';
 import Footer from '../components/Footer.astro';
 import SocialLinks from '../components/SocialLinks.astro';
-import {getLatestVideosFromChannel} from '../utils/youtube';
 import StravaDashboard from '../components/StravaDashboard.astro';
 import VideoList from '../components/VideoList.astro'; // {{ edit: Import VideoList component }}
-
-const channelId = import.meta.env.YOUTUBE_CHANNEL_ID;
-const allVideos = await getLatestVideosFromChannel(channelId, 20);
-
-const shorts = allVideos.filter((video) => video.isShort);
-const regularVideos = allVideos.filter((video) => !video.isShort);
 ---
 
 <html lang='en'>

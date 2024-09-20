@@ -1,15 +1,21 @@
 ---
 import ShortsCarouselSvelte from './ShortsCarousel.svelte';
-
 import YouTubeVideo from './YouTubeVideo.astro';
-const {videos, shorts} = Astro.props;
-const latestVideo = videos[0];
-const otherVideos = videos.slice(1);
+import {getLatestVideosFromChannel} from '../utils/youtube';
+
+const channelId = import.meta.env.YOUTUBE_CHANNEL_ID;
+const allVideos = await getLatestVideosFromChannel(channelId, 20);
+
+const shorts = allVideos.filter((video) => video.isShort);
+const regularVideos = allVideos.filter((video) => !video.isShort);
+
+const latestVideo = regularVideos[0];
+const otherVideos = regularVideos.slice(1);
 ---
 
 <div>
   <h2 class='text-2xl font-bold mb-4 text-sky-200'>Najnowszy film</h2>
-  {latestVideo && <YouTubeVideo videoId={latestVideo.id} />}
+  {latestVideo?.id && <YouTubeVideo videoId={latestVideo.id} />}
 
   <div class='mt-8'>
     <h2 class='text-2xl font-bold mb-4 text-sky-200'>Shorts</h2>
@@ -18,6 +24,6 @@ const otherVideos = videos.slice(1);
 
   <h2 class='text-2xl font-bold mt-8 mb-4 text-sky-200'>Inne filmy</h2>
   <div class='grid grid-cols-1 sm:grid-cols-3 gap-4'>
-    {otherVideos.map((video) => <YouTubeVideo videoId={video.id} />)}
+    {otherVideos.map((video) => video.id && <YouTubeVideo videoId={video.id} />)}
   </div>
 </div>
