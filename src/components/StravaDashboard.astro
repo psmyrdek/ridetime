@@ -1,0 +1,41 @@
+---
+import stravaIcon from '../assets/images/strava-icon.png';
+
+interface Props {
+  currentYearDistance: number;
+  currentYearActivities: number;
+  latestActivityUrl: string;
+}
+
+const {currentYearDistance, currentYearActivities, latestActivityUrl} = Astro.props;
+
+// Convert distance from meters to kilometers and round to 1 decimal place
+const distanceInKm = currentYearDistance;
+---
+
+<div class='bg-ridetime-dark rounded-lg shadow-lg'>
+  <h2 class='text-2xl font-bold mb-4 text-orange-600'>
+    <img src={stravaIcon.src} alt='Strava' class='inline-block size-8 mr-2' />
+    <span class='align-middle'>W tym roku</span>
+  </h2>
+  <div class='grid grid-cols-1 md:grid-cols-3 gap-4'>
+    <div class='border border-white/20 p-4 rounded-md'>
+      <h3 class='text-lg font-semibold text-orange-200 mb-2'>Dystans</h3>
+      <p class='text-3xl font-bold text-white'>{distanceInKm} km</p>
+    </div>
+    <div class='border border-white/20 p-4 rounded-md'>
+      <h3 class='text-lg font-semibold text-orange-200 mb-2'>Treningi</h3>
+      <p class='text-3xl font-bold text-white'>{currentYearActivities}</p>
+    </div>
+    <div class='border border-white/20 p-4 rounded-md'>
+      <h3 class='text-lg font-semibold text-orange-200 mb-2'>Ostatnia aktywność</h3>
+      <a
+        href={latestActivityUrl}
+        target='_blank'
+        rel='noopener noreferrer'
+        class='text-white hover:text-sky-200 transition-colors duration-200'>
+        Zobacz szczegóły
+      </a>
+    </div>
+  </div>
+</div>

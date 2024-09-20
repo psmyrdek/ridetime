@@ -1,0 +1,23 @@
+---
+import ShortsCarouselSvelte from './ShortsCarousel.svelte';
+
+import YouTubeVideo from './YouTubeVideo.astro';
+const {videos, shorts} = Astro.props;
+const latestVideo = videos[0];
+const otherVideos = videos.slice(1);
+---
+
+<div>
+  <h2 class='text-2xl font-bold mb-4 text-sky-200'>Najnowszy film</h2>
+  {latestVideo && <YouTubeVideo videoId={latestVideo.id} />}
+
+  <div class='mt-8'>
+    <h2 class='text-2xl font-bold mb-4 text-sky-200'>Shorts</h2>
+    <ShortsCarouselSvelte client:load shorts={shorts} />
+  </div>
+
+  <h2 class='text-2xl font-bold mt-8 mb-4 text-sky-200'>Inne filmy</h2>
+  <div class='grid grid-cols-1 sm:grid-cols-3 gap-4'>
+    {otherVideos.map((video) => <YouTubeVideo videoId={video.id} />)}
+  </div>
+</div>

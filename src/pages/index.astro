@@ -2,10 +2,10 @@
 import '../index.css';
 import logoWhite from '../assets/images/logo-white.png';
 import Footer from '../components/Footer.astro';
-import YouTubeVideo from '../components/YouTubeVideo.astro';
-import ShortsCarouselSvelte from '../components/ShortsCarousel.svelte';
 import SocialLinks from '../components/SocialLinks.astro';
 import {getLatestVideosFromChannel} from '../utils/youtube';
+import StravaDashboard from '../components/StravaDashboard.astro';
+import VideoList from '../components/VideoList.astro'; // {{ edit: Import VideoList component }}
 
 const channelId = import.meta.env.YOUTUBE_CHANNEL_ID;
 const allVideos = await getLatestVideosFromChannel(channelId, 20);
@@ -28,23 +28,20 @@ const regularVideos = allVideos.filter((video) => !video.isShort);
     <meta name='description' content='Rowery, ubrania, sprzęt i trasy - dla fanów kolarstwa.' />
   </head>
   <body class='bg-ridetime-dark'>
-    <div class='mx-auto max-w-5xl p-4 space-y-8'>
+    <div class='mx-auto max-w-7xl p-4 space-y-8'>
       <div class='flex flex-col gap-y-4 sm:gap-y-0 sm:flex-row items-center justify-between'>
         <img src={logoWhite.src} alt='ridetime logo' class='h-16' />
         <SocialLinks showLabels={true} />
       </div>
 
-      <!-- Embed ShortsCarouselSvelte component directly -->
-      <div class='mb-8'>
-        <h2 class='text-2xl font-bold mb-4 text-sky-200'>Shorts</h2>
-        <ShortsCarouselSvelte client:load shorts={shorts} />
-      </div>
+      <StravaDashboard
+        client:load
+        currentYearDistance={4719.6}
+        currentYearActivities={101}
+        latestActivityUrl={'https://www.strava.com/activities/12456752506'}
+      />
 
-      <!-- Regular videos list -->
-      <h2 class='text-2xl font-bold mb-4 text-sky-200'>Najnowsze filmy</h2>
-      <ul class='space-y-16'>
-        {regularVideos.map((video) => <li>{video.id && <YouTubeVideo videoId={video.id} />}</li>)}
-      </ul>
+      <VideoList videos={regularVideos} shorts={shorts} />
 
       <Footer />
     </div>
