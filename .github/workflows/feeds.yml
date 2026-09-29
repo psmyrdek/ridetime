@@ -1,0 +1,83 @@
+name: Refresh feeds
+
+on:
+  schedule:
+    - cron: '0 5 * * *' # daily, 05:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: feeds
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - name: Fetch YouTube videos
+        run: npm run fetch:youtube
+
+      # Kept non-blocking so a Strava outage doesn't stop new videos from shipping; the last step fails the run instead.
+      - name: Fetch Strava stats
+        id: strava
+        continue-on-error: true
+        env:
+          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
+          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
+          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
+          STRAVA_TOKEN_FILE: ${{ runner.temp }}/strava-refresh-token
+        run: npm run fetch:strava
+
+      # Strava invalidates the old refresh token when it issues a new one, so store the new one for the next run.
+      - name: Store rotated Strava refresh token
+        env:
+          GH_TOKEN: ${{ secrets.SECRETS_PAT }}
+          TOKEN_FILE: ${{ runner.temp }}/strava-refresh-token
+        run: |
+          if [ ! -f "$TOKEN_FILE" ]; then exit 0; fi
+          echo "::add-mask::$(cat "$TOKEN_FILE")"
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::Strava rotated the refresh token but SECRETS_PAT is not set - update STRAVA_REFRESH_TOKEN manually (npm run strava:auth)"
+            exit 1
+          fi
+          gh secret set STRAVA_REFRESH_TOKEN --repo "$GITHUB_REPOSITORY" < "$TOKEN_FILE"
+
+      - name: Check for changes
+        id: diff
+        run: |
+          if git diff --quiet -- src/data; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Make sure the new data still builds before pushing - the push triggers a Vercel deploy.
+      - name: Build
+        if: steps.diff.outputs.changed == 'true'
+        run: npm run build
+
+      - name: Commit and push
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898333+github-actions[bot]@users.noreply.github.com"
+          git add src/data
+          git commit -m "chore: refresh YouTube and Strava data"
+          git push
+
+      - name: Fail if Strava refresh failed
+        if: steps.strava.outcome == 'failure'
+        run: |
+          echo "::error::Strava refresh failed - see the 'Fetch Strava stats' step"
+          exit 1

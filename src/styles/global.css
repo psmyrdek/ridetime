@@ -1,0 +1,43 @@
+@import 'tailwindcss';
+
+@font-face {
+  font-family: Francy;
+  src:
+    url('/fonts/francy/Francy.woff2') format('woff2'),
+    url('/fonts/francy/Francy.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-ridetime-light: #9acdfa;
+  --color-ridetime-navy: #1c497f;
+  --color-ridetime-dark: rgb(8 19 32);
+  --color-ridetime-surface: rgb(14 30 49);
+  --color-strava: #fc4c02;
+
+  --font-main: Francy, ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply bg-ridetime-dark text-slate-200 antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ridetime-light;
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

@@ -1,47 +1,33 @@
-# Astro Starter Kit: Minimal
+# ridetime
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Strona kanału [RideTime](https://www.youtube.com/@RideTimePL): najnowsze filmy, Shorts i statystyki ze Stravy.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+Astro 7 + Svelte 5 + Tailwind 4, deploy na Vercel.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Komendy
 
-## 🚀 Project Structure
+| Komenda                 | Opis                                                   |
+| :---------------------- | :----------------------------------------------------- |
+| `npm install`           | Instalacja zależności                                  |
+| `npm run dev`           | Serwer deweloperski na `localhost:3000`                |
+| `npm run build`         | `astro check` + build produkcyjny                      |
+| `npm run fetch:youtube` | Odświeża `src/data/youtube.json` z feedów RSS YouTube  |
+| `npm run fetch:strava`  | Odświeża `src/data/strava.json` ze Strava API          |
+| `npm run strava:auth`   | Jednorazowa autoryzacja Stravy, wypisuje refresh token |
 
-Inside of your Astro project, you'll see the following folders and files:
+## Dane z YouTube i Stravy
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+Filmy i statystyki nie są pobierane w trakcie builda. Workflow `.github/workflows/feeds.yml` raz dziennie (05:00 UTC,
+lub ręcznie przez _Run workflow_) uruchamia `scripts/fetch-youtube.ts`, który czyta publiczne feedy RSS playlist
+kanału (`UULF…` - filmy, `UUSH…` - Shorts), dokleja nowe pozycje do `src/data/youtube.json` i commituje zmiany.
+Push na `master` uruchamia deploy na Vercelu. Nie jest potrzebny klucz API.
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Statystyki Stravy (`scripts/fetch-strava.ts`) pobierane są w tym samym workflow. Sekrety repo:
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- `STRAVA_CLIENT_ID`, `STRAVA_CLIENT_SECRET` - z aplikacji na https://www.strava.com/settings/api
+  (Authorization Callback Domain: `localhost`)
+- `STRAVA_REFRESH_TOKEN` - z `STRAVA_CLIENT_ID=… STRAVA_CLIENT_SECRET=… npm run strava:auth`
+- `SECRETS_PAT` - fine-grained PAT dla tego repo z uprawnieniem _Secrets: Read and write_. Strava może wydać nowy
+  refresh token i unieważnić stary - workflow zapisuje wtedy nowy token do `STRAVA_REFRESH_TOKEN`.
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Bez sekretów Stravy krok jest pomijany, a strona pokazuje ostatnie zapisane dane.

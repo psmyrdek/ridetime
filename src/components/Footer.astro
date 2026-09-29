@@ -2,13 +2,9 @@
 import SocialLinks from './SocialLinks.astro';
 ---
 
-<footer class='bg-ridetime-dark'>
-  <div class='mx-auto max-w-7xl py-8 md:flex md:items-center md:justify-between'>
-    <div class='flex justify-center md:order-2'>
-      <SocialLinks />
-    </div>
-    <div class='mt-8 md:order-1 md:mt-0'>
-      <p class='text-center text-xs leading-5 text-sky-200'>&copy; 2024 ridetime</p>
-    </div>
+<footer class="border-t border-white/5">
+  <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row sm:px-6">
+    <p class="text-sm text-slate-400">&copy; {new Date().getFullYear()} ridetime · Chodź na rower</p>
+    <SocialLinks />
   </div>
 </footer>

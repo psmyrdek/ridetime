@@ -1,41 +1,80 @@
 ---
-import '../index.css';
-import logoWhite from '../assets/images/logo-white.png';
+import '../styles/global.css';
+import FeaturedVideo from '../components/FeaturedVideo.astro';
 import Footer from '../components/Footer.astro';
-import SocialLinks from '../components/SocialLinks.astro';
+import Header from '../components/Header.astro';
+import ShortsCarousel from '../components/ShortsCarousel.svelte';
 import StravaDashboard from '../components/StravaDashboard.astro';
-import VideoList from '../components/VideoList.astro';
+import VideoGrid from '../components/VideoGrid.astro';
+import { shorts, videos } from '../utils/youtube';
+import { LINK_YT } from '../const/social-links';
+
+const [latestVideo, ...rest] = videos;
+const otherVideos = rest.slice(0, 12);
+const title = 'ridetime | Chodź na rower';
+const description = 'Rowery, ubrania, sprzęt i trasy - dla fanów kolarstwa.';
 ---
 
-<html lang='en'>
+<html lang="pl">
   <head>
-    <meta charset='utf-8' />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
-      rel='icon'
-      href='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚴‍♂️</text></svg>'
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚴‍♂️</text></svg>"
     />
-    <meta name='viewport' content='width=device-width' />
-
-    <meta name='generator' content={Astro.generator} />
-    <title>ridetime | Chodź na rower</title>
-    <meta name='description' content='Rowery, ubrania, sprzęt i trasy - dla fanów kolarstwa.' />
+    <link rel="preload" href="/fonts/francy/Francy.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preconnect" href="https://i.ytimg.com" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#081320" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    {latestVideo && <meta property="og:image" content={`https://i.ytimg.com/vi/${latestVideo.id}/maxresdefault.jpg`} />}
   </head>
-  <body class='bg-ridetime-dark'>
-    <div class='mx-auto max-w-7xl p-4 space-y-8'>
-      <div class='flex flex-col gap-y-4 sm:gap-y-0 sm:flex-row items-center justify-between'>
-        <img src={logoWhite.src} alt='ridetime logo' class='h-16' />
-        <SocialLinks showLabels={true} />
-      </div>
+  <body>
+    <Header />
 
-      <StravaDashboard
-        currentYearDistance={5493.1}
-        currentYearActivities={115}
-        latestActivityUrl={'https://www.strava.com/activities/12875305429'}
-      />
+    <main class="space-y-20 pb-20 sm:space-y-28">
+      {latestVideo && <FeaturedVideo video={latestVideo} />}
 
-      <VideoList />
+      <StravaDashboard />
 
-      <Footer />
-    </div>
+      {shorts.length > 0 && (
+        <section id="shorts" class="mx-auto max-w-7xl px-4 sm:px-6">
+          <div class="mb-6 flex items-end justify-between gap-4">
+            <h2 class="font-main text-3xl text-white sm:text-4xl">Shorts</h2>
+            <a
+              href={`${LINK_YT}/shorts`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm font-semibold text-ridetime-light hover:text-white">
+              Wszystkie →
+            </a>
+          </div>
+          <ShortsCarousel client:visible shorts={shorts} />
+        </section>
+      )}
+
+      {otherVideos.length > 0 && (
+        <section id="filmy" class="mx-auto max-w-7xl px-4 sm:px-6">
+          <div class="mb-8 flex items-end justify-between gap-4">
+            <h2 class="font-main text-3xl text-white sm:text-4xl">Więcej filmów</h2>
+            <a
+              href={`${LINK_YT}/videos`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm font-semibold text-ridetime-light hover:text-white">
+              Kanał YouTube →
+            </a>
+          </div>
+          <VideoGrid videos={otherVideos} />
+        </section>
+      )}
+    </main>
+
+    <Footer />
   </body>
 </html>
