@@ -1,17 +1,17 @@
 {
   "year": 2026,
   "ytd": {
-    "rides": 127,
-    "distanceKm": 2736.3,
-    "elevationM": 37769,
-    "movingTimeH": 116
+    "rides": 128,
+    "distanceKm": 2751.7,
+    "elevationM": 38130,
+    "movingTimeH": 117
   },
   "latestActivity": {
-    "id": 20379909958,
-    "name": "MyWhoosh - 5min Max Aerobic",
+    "id": 20417992719,
+    "name": "MyWhoosh - Montreal",
     "sportType": "VirtualRide",
-    "distanceKm": 26.3,
-    "elevationM": 312,
-    "startDate": "2026-09-29T14:43:53Z"
+    "distanceKm": 15.4,
+    "elevationM": 361,
+    "startDate": "2026-10-02T09:57:04Z"
   }
 }
