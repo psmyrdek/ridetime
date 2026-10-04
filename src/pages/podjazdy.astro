@@ -1,0 +1,65 @@
+---
+import '../styles/global.css';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import CompareClimbs from '../components/climbs/CompareClimbs.svelte';
+
+const title = 'Porównaj podjazdy | ridetime';
+const description =
+  'Zestaw dwa podjazdy obok siebie albo nałóż ich profile i sprawdź, który jest trudniejszy. Dla amatorów kolarstwa szosowego.';
+---
+
+<html lang="pl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚴‍♂️</text></svg>"
+    />
+    <link rel="preload" href="/fonts/francy/Francy.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preconnect" href="https://brouter.de" />
+    <link rel="preconnect" href="https://tiles.openfreemap.org" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#081320" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <Header />
+
+    <main class="mx-auto max-w-7xl px-4 pt-6 pb-20 sm:px-6 sm:pt-8">
+      <h1 class="sr-only">Porównaj podjazdy</h1>
+
+      <CompareClimbs client:only="svelte">
+        <div slot="fallback" class="grid h-96 place-items-center text-sm text-slate-500">
+          Ładuję mapy…
+        </div>
+      </CompareClimbs>
+
+      <p class="mt-10 text-xs text-slate-500">
+        Mapa:{' '}
+        <a href="https://openfreemap.org" class="text-slate-400 hover:text-white">
+          OpenFreeMap
+        </a>{' '}
+        /
+        <a href="https://www.openstreetmap.org/copyright" class="text-slate-400 hover:text-white">
+          OpenStreetMap
+        </a>{' '}
+        · Trasy i wysokości (SRTM):{' '}
+        <a href="https://brouter.de" class="text-slate-400 hover:text-white">
+          BRouter
+        </a>{' '}
+        · Wyszukiwarka:{' '}
+        <a href="https://photon.komoot.io" class="text-slate-400 hover:text-white">
+          Photon
+        </a>
+      </p>
+    </main>
+
+    <Footer />
+  </body>
+</html>

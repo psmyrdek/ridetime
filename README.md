@@ -31,3 +31,21 @@ Statystyki Stravy (`scripts/fetch-strava.ts`) pobierane są w tym samym workflow
   refresh token i unieważnić stary - workflow zapisuje wtedy nowy token do `STRAVA_REFRESH_TOKEN`.
 
 Bez sekretów Stravy krok jest pomijany, a strona pokazuje ostatnie zapisane dane.
+
+## Porównaj podjazdy (`/podjazdy`)
+
+Dwa podjazdy obok siebie (profile kolorowane nachyleniem, wspólna skala) albo nałożone na siebie (wyrównane do startu
+lub szczytu). Podjazd to trasa start → meta zaznaczona na mapie; liczona w przeglądarce z otwartych źródeł, bez kluczy
+API:
+
+- **Photon** (`photon.komoot.io`) – wyszukiwarka przełęczy, szczytów i miejscowości z OpenStreetMap,
+- **BRouter** (`brouter.de`) – trasa z wysokością SRTM dla każdego punktu. Własny profil szosowy
+  `src/utils/climbs/road-bike.brf` (pochodna `fastbike`): tylko utwardzone drogi, bez szutrowych ścieżek rowerowych,
+  ścieżek pieszych i nieutwardzonych duktów. Profil jest wgrywany na serwer przy starcie (`POST /brouter/profile`)
+  i ponownie, gdy wygaśnie; awaryjnie używamy `fastbike-verylowtraffic`,
+- **OpenFreeMap** (styl Positron) – wektorowa mapa renderowana przez MapLibre w Leaflecie; `src/utils/climbs/basemap.ts`
+  ukrywa ścieżki i wzmacnia drogi.
+
+Publiczne instancje nie mają SLA (Photon dławi intensywne użycie), przy większym ruchu warto postawić własny BRouter
+i Photon – adresy są w `src/utils/climbs/api.ts`. Stan porównania trafia do URL-a (`?a=lat,lng~lat,lng~nazwa&b=…`).
+Klasyczne podjazdy (Przegibek, Gliczarów, Przehyba, Odrodzenie) są w `PRESETS` w `src/utils/climbs/climb.svelte.ts`.
