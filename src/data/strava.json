@@ -1,17 +1,17 @@
 {
   "year": 2026,
   "ytd": {
-    "rides": 128,
-    "distanceKm": 2751.7,
-    "elevationM": 38130,
-    "movingTimeH": 117
+    "rides": 129,
+    "distanceKm": 2817.6,
+    "elevationM": 38422,
+    "movingTimeH": 119
   },
   "latestActivity": {
-    "id": 20417992719,
-    "name": "MyWhoosh - Montreal",
-    "sportType": "VirtualRide",
-    "distanceKm": 15.4,
-    "elevationM": 361,
-    "startDate": "2026-10-02T09:57:04Z"
+    "id": 20445632350,
+    "name": "Poranna jazda na rowerze",
+    "sportType": "Ride",
+    "distanceKm": 65.9,
+    "elevationM": 292,
+    "startDate": "2026-10-04T08:50:14Z"
   }
 }
