@@ -4,11 +4,13 @@ import logoWhite from '../assets/images/logo-white.png';
 import SocialLinks from './SocialLinks.astro';
 
 const nav = [
-  { label: 'Najnowszy', href: '#najnowszy' },
-  { label: 'Strava', href: '#strava' },
-  { label: 'Shorts', href: '#shorts' },
-  { label: 'Filmy', href: '#filmy' },
+  { label: 'Najnowszy', href: '/#najnowszy' },
+  { label: 'Strava', href: '/#strava' },
+  { label: 'Shorts', href: '/#shorts' },
+  { label: 'Filmy', href: '/#filmy' },
+  { label: 'Podjazdy', href: '/podjazdy' },
 ];
+const currentPath = Astro.url.pathname.replace(/\/$/, '');
 ---
 
 <header class="sticky top-0 z-30 border-b border-white/5 bg-ridetime-dark/80 backdrop-blur-lg">
@@ -20,7 +22,13 @@ const nav = [
       <ul class="flex gap-1 text-sm font-medium">
         {nav.map(({ label, href }) => (
           <li>
-            <a href={href} class="rounded-full px-4 py-2 text-slate-300 transition hover:bg-white/5 hover:text-white">
+            <a
+              href={href}
+              aria-current={href === currentPath ? 'page' : undefined}
+              class:list={[
+                'rounded-full px-4 py-2 transition hover:bg-white/5 hover:text-white',
+                href === currentPath ? 'bg-white/5 text-white' : 'text-slate-300',
+              ]}>
               {label}
             </a>
           </li>
