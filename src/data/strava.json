@@ -1,17 +1,17 @@
 {
   "year": 2026,
   "ytd": {
-    "rides": 129,
-    "distanceKm": 2817.6,
-    "elevationM": 38422,
+    "rides": 130,
+    "distanceKm": 2820.8,
+    "elevationM": 38432,
     "movingTimeH": 119
   },
   "latestActivity": {
-    "id": 20445632350,
-    "name": "Poranna jazda na rowerze",
+    "id": 20445823121,
+    "name": "Do auta",
     "sportType": "Ride",
-    "distanceKm": 65.9,
-    "elevationM": 292,
-    "startDate": "2026-10-04T08:50:14Z"
+    "distanceKm": 3.2,
+    "elevationM": 10,
+    "startDate": "2026-10-04T11:00:35Z"
   }
 }
