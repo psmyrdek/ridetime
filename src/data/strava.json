@@ -1,17 +1,17 @@
 {
   "year": 2026,
   "ytd": {
-    "rides": 130,
-    "distanceKm": 2820.8,
-    "elevationM": 38432,
-    "movingTimeH": 119
+    "rides": 131,
+    "distanceKm": 2845.4,
+    "elevationM": 38686,
+    "movingTimeH": 120
   },
   "latestActivity": {
-    "id": 20445823121,
-    "name": "Do auta",
+    "id": 20485292622,
+    "name": "Żłobbing",
     "sportType": "Ride",
-    "distanceKm": 3.2,
-    "elevationM": 10,
-    "startDate": "2026-10-04T11:00:35Z"
+    "distanceKm": 24.5,
+    "elevationM": 254,
+    "startDate": "2026-10-07T07:04:32Z"
   }
 }
