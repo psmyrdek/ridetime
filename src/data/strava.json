@@ -1,17 +1,17 @@
 {
   "year": 2026,
   "ytd": {
-    "rides": 132,
-    "distanceKm": 2896.9,
-    "elevationM": 39380,
-    "movingTimeH": 122
+    "rides": 133,
+    "distanceKm": 2925.4,
+    "elevationM": 39703,
+    "movingTimeH": 123
   },
   "latestActivity": {
-    "id": 20539350786,
-    "name": "Poranna jazda na rowerze",
-    "sportType": "Ride",
-    "distanceKm": 51.5,
-    "elevationM": 694,
-    "startDate": "2026-10-11T08:31:24Z"
+    "id": 20564592749,
+    "name": "MyWhoosh - Anaerobic Capacity into Sweetspot #3",
+    "sportType": "VirtualRide",
+    "distanceKm": 28.5,
+    "elevationM": 323,
+    "startDate": "2026-10-13T07:55:33Z"
   }
 }
