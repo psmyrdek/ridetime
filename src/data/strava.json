@@ -1,17 +1,17 @@
 {
   "year": 2026,
   "ytd": {
-    "rides": 133,
-    "distanceKm": 2925.4,
-    "elevationM": 39703,
-    "movingTimeH": 123
+    "rides": 134,
+    "distanceKm": 2946.5,
+    "elevationM": 39931,
+    "movingTimeH": 124
   },
   "latestActivity": {
-    "id": 20564592749,
-    "name": "MyWhoosh - Anaerobic Capacity into Sweetspot #3",
+    "id": 20606176343,
+    "name": "Alcatraz AWOL",
     "sportType": "VirtualRide",
-    "distanceKm": 28.5,
-    "elevationM": 323,
-    "startDate": "2026-10-13T07:55:33Z"
+    "distanceKm": 21.1,
+    "elevationM": 228,
+    "startDate": "2026-10-16T09:03:59Z"
   }
 }
