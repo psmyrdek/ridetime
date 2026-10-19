@@ -1,17 +1,17 @@
 {
   "year": 2026,
   "ytd": {
-    "rides": 134,
-    "distanceKm": 2946.5,
-    "elevationM": 39931,
-    "movingTimeH": 124
+    "rides": 135,
+    "distanceKm": 2968.4,
+    "elevationM": 40637,
+    "movingTimeH": 125
   },
   "latestActivity": {
-    "id": 20606176343,
-    "name": "Alcatraz AWOL",
-    "sportType": "VirtualRide",
-    "distanceKm": 21.1,
-    "elevationM": 228,
-    "startDate": "2026-10-16T09:03:59Z"
+    "id": 20632833396,
+    "name": "Magurka ft. Czupel",
+    "sportType": "Ride",
+    "distanceKm": 21.8,
+    "elevationM": 706,
+    "startDate": "2026-10-18T08:32:28Z"
   }
 }
