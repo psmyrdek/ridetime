@@ -1,17 +1,17 @@
 {
   "year": 2026,
   "ytd": {
-    "rides": 135,
-    "distanceKm": 2968.4,
-    "elevationM": 40637,
-    "movingTimeH": 125
+    "rides": 136,
+    "distanceKm": 2997.6,
+    "elevationM": 40866,
+    "movingTimeH": 126
   },
   "latestActivity": {
-    "id": 20632833396,
-    "name": "Magurka ft. Czupel",
-    "sportType": "Ride",
-    "distanceKm": 21.8,
-    "elevationM": 706,
-    "startDate": "2026-10-18T08:32:28Z"
+    "id": 20662562665,
+    "name": "MyWhoosh - Progressive Climb #2",
+    "sportType": "VirtualRide",
+    "distanceKm": 29.2,
+    "elevationM": 229,
+    "startDate": "2026-10-20T14:48:46Z"
   }
 }
