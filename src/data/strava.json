@@ -1,17 +1,17 @@
 {
   "year": 2026,
   "ytd": {
-    "rides": 136,
-    "distanceKm": 2997.6,
-    "elevationM": 40866,
-    "movingTimeH": 126
+    "rides": 137,
+    "distanceKm": 3017.5,
+    "elevationM": 41268,
+    "movingTimeH": 127
   },
   "latestActivity": {
-    "id": 20662562665,
-    "name": "MyWhoosh - Progressive Climb #2",
+    "id": 20688387605,
+    "name": "MyWhoosh - Endurance #6",
     "sportType": "VirtualRide",
-    "distanceKm": 29.2,
-    "elevationM": 229,
-    "startDate": "2026-10-20T14:48:46Z"
+    "distanceKm": 20,
+    "elevationM": 402,
+    "startDate": "2026-10-22T13:07:21Z"
   }
 }
