@@ -1,17 +1,17 @@
 {
   "year": 2026,
   "ytd": {
-    "rides": 137,
-    "distanceKm": 3017.5,
-    "elevationM": 41268,
-    "movingTimeH": 127
+    "rides": 138,
+    "distanceKm": 3034.8,
+    "elevationM": 41730,
+    "movingTimeH": 129
   },
   "latestActivity": {
-    "id": 20688387605,
-    "name": "MyWhoosh - Endurance #6",
-    "sportType": "VirtualRide",
-    "distanceKm": 20,
-    "elevationM": 402,
-    "startDate": "2026-10-22T13:07:21Z"
+    "id": 20724875989,
+    "name": "Z DH najbardziej lubię w górę",
+    "sportType": "Ride",
+    "distanceKm": 17.2,
+    "elevationM": 462,
+    "startDate": "2026-10-25T10:28:47Z"
   }
 }
