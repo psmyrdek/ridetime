@@ -1,17 +1,17 @@
 {
   "year": 2026,
   "ytd": {
-    "rides": 138,
-    "distanceKm": 3034.8,
-    "elevationM": 41730,
-    "movingTimeH": 129
+    "rides": 139,
+    "distanceKm": 3062.9,
+    "elevationM": 41921,
+    "movingTimeH": 130
   },
   "latestActivity": {
-    "id": 20724875989,
-    "name": "Z DH najbardziej lubię w górę",
-    "sportType": "Ride",
-    "distanceKm": 17.2,
-    "elevationM": 462,
-    "startDate": "2026-10-25T10:28:47Z"
+    "id": 20747849366,
+    "name": "MyWhoosh - AC + Sweetspot #2",
+    "sportType": "VirtualRide",
+    "distanceKm": 28.1,
+    "elevationM": 191,
+    "startDate": "2026-10-27T08:19:09Z"
   }
 }
