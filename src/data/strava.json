@@ -1,17 +1,17 @@
 {
   "year": 2026,
   "ytd": {
-    "rides": 139,
-    "distanceKm": 3062.9,
-    "elevationM": 41921,
-    "movingTimeH": 130
+    "rides": 140,
+    "distanceKm": 3092.3,
+    "elevationM": 42201,
+    "movingTimeH": 131
   },
   "latestActivity": {
-    "id": 20747849366,
-    "name": "MyWhoosh - AC + Sweetspot #2",
+    "id": 20775521811,
+    "name": "MyWhoosh - Paris Classic",
     "sportType": "VirtualRide",
-    "distanceKm": 28.1,
-    "elevationM": 191,
-    "startDate": "2026-10-27T08:19:09Z"
+    "distanceKm": 29.4,
+    "elevationM": 280,
+    "startDate": "2026-10-29T08:20:13Z"
   }
 }
