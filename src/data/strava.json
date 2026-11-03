@@ -1,17 +1,17 @@
 {
   "year": 2026,
   "ytd": {
-    "rides": 140,
-    "distanceKm": 3092.3,
-    "elevationM": 42201,
-    "movingTimeH": 131
+    "rides": 141,
+    "distanceKm": 3104.9,
+    "elevationM": 42791,
+    "movingTimeH": 132
   },
   "latestActivity": {
-    "id": 20775521811,
-    "name": "MyWhoosh - Paris Classic",
+    "id": 20829466581,
+    "name": "MyWhoosh - Col du Galibier",
     "sportType": "VirtualRide",
-    "distanceKm": 29.4,
-    "elevationM": 280,
-    "startDate": "2026-10-29T08:20:13Z"
+    "distanceKm": 12.7,
+    "elevationM": 590,
+    "startDate": "2026-11-02T13:07:47Z"
   }
 }
