@@ -1,17 +1,17 @@
 {
   "year": 2026,
   "ytd": {
-    "rides": 142,
-    "distanceKm": 3116.8,
-    "elevationM": 43145,
-    "movingTimeH": 132
+    "rides": 143,
+    "distanceKm": 3136.7,
+    "elevationM": 43539,
+    "movingTimeH": 133
   },
   "latestActivity": {
-    "id": 20869184235,
-    "name": "MyWhoosh - Spiked Aerobic #1",
+    "id": 20917471337,
+    "name": "MyWhoosh - 40/20's into FTP #1",
     "sportType": "VirtualRide",
-    "distanceKm": 11.9,
-    "elevationM": 354,
-    "startDate": "2026-11-05T11:50:26Z"
+    "distanceKm": 19.8,
+    "elevationM": 394,
+    "startDate": "2026-11-09T08:11:45Z"
   }
 }
