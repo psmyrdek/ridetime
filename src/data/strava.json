@@ -1,17 +1,17 @@
 {
   "year": 2026,
   "ytd": {
-    "rides": 143,
-    "distanceKm": 3136.7,
-    "elevationM": 43539,
-    "movingTimeH": 133
+    "rides": 145,
+    "distanceKm": 3186.7,
+    "elevationM": 44177,
+    "movingTimeH": 135
   },
   "latestActivity": {
-    "id": 20917471337,
-    "name": "MyWhoosh - 40/20's into FTP #1",
+    "id": 20971298655,
+    "name": "MyWhoosh - Low 60's",
     "sportType": "VirtualRide",
-    "distanceKm": 19.8,
-    "elevationM": 394,
-    "startDate": "2026-11-09T08:11:45Z"
+    "distanceKm": 27.4,
+    "elevationM": 224,
+    "startDate": "2026-11-13T11:28:52Z"
   }
 }
