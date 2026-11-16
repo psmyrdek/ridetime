@@ -1,17 +1,17 @@
 {
   "year": 2026,
   "ytd": {
-    "rides": 145,
-    "distanceKm": 3186.7,
-    "elevationM": 44177,
-    "movingTimeH": 135
+    "rides": 146,
+    "distanceKm": 3214.1,
+    "elevationM": 44645,
+    "movingTimeH": 136
   },
   "latestActivity": {
-    "id": 20971298655,
-    "name": "MyWhoosh - Low 60's",
+    "id": 21006144178,
+    "name": "MyWhoosh - Zurich",
     "sportType": "VirtualRide",
     "distanceKm": 27.4,
-    "elevationM": 224,
-    "startDate": "2026-11-13T11:28:52Z"
+    "elevationM": 468,
+    "startDate": "2026-11-16T08:18:41Z"
   }
 }
