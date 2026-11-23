@@ -1,17 +1,17 @@
 {
   "year": 2026,
   "ytd": {
-    "rides": 146,
-    "distanceKm": 3214.1,
-    "elevationM": 44645,
-    "movingTimeH": 136
+    "rides": 147,
+    "distanceKm": 3253.2,
+    "elevationM": 44797,
+    "movingTimeH": 138
   },
   "latestActivity": {
-    "id": 21006144178,
-    "name": "MyWhoosh - Zurich",
+    "id": 21093149388,
+    "name": "MyWhoosh - Z2/Z3",
     "sportType": "VirtualRide",
-    "distanceKm": 27.4,
-    "elevationM": 468,
-    "startDate": "2026-11-16T08:18:41Z"
+    "distanceKm": 39.1,
+    "elevationM": 152,
+    "startDate": "2026-11-23T09:46:06Z"
   }
 }
