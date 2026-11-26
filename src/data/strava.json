@@ -1,17 +1,17 @@
 {
   "year": 2026,
   "ytd": {
-    "rides": 147,
-    "distanceKm": 3253.2,
-    "elevationM": 44797,
+    "rides": 148,
+    "distanceKm": 3278.6,
+    "elevationM": 44943,
     "movingTimeH": 138
   },
   "latestActivity": {
-    "id": 21093149388,
-    "name": "MyWhoosh - Z2/Z3",
+    "id": 21129750784,
+    "name": "MyWhoosh - Lactate Fuel",
     "sportType": "VirtualRide",
-    "distanceKm": 39.1,
-    "elevationM": 152,
-    "startDate": "2026-11-23T09:46:06Z"
+    "distanceKm": 25.4,
+    "elevationM": 146,
+    "startDate": "2026-11-26T09:58:34Z"
   }
 }
